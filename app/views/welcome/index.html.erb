@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body>
+	<div>
+		<button>
+			<%= link_to "Crear Evento", new_meeting_path, {:style => "text-decoration: none"} %>
+		</button>
+		<button>
+			<%= link_to "Ver Eventos", meetings_path, {:style => "text-decoration: none"} %>
+		</button><br>
+
+	</div><br>
+	
+	<div class="calendar">
+	</div>
+
+</body>
+</html>
