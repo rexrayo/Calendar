@@ -1,4 +1,6 @@
 //= require jquery
+//= require popper
+//= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
 //= require moment 
@@ -33,7 +35,6 @@ initialize_calendar = function() {
      
 
      eventDrop: function(meetings, delta, revertFunc) {
-     // console.log(meetings)
      // console.log(delta)
      // console.log(revertFunc)
 
@@ -47,7 +48,7 @@ initialize_calendar = function() {
           }  
         };
 
-        // console.log(meetings_data)
+         //console.log(meetings_data)
 
       $.ajax({
             url: meetings_data.meeting.meeting_url,
