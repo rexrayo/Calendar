@@ -51,7 +51,7 @@ class MeetingsController < ApplicationController
       if @meeting.update(meeting_params)
         
         # puts "Entra aqui"
-        format.html { redirect_to :root }
+        format.html { redirect_to :index }
         # format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit }
