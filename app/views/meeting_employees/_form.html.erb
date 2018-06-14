@@ -1,0 +1,27 @@
+<%= form_with(model: meeting_employee, local: true) do |form| %>
+  <% if meeting_employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meeting_employee.errors.count, "error") %> prohibited this meeting_employee from being saved:</h2>
+
+      <ul>
+      <% meeting_employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :meeting_id %>
+    <%= form.text_field :meeting_id, id: :meeting_employee_meeting_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_id %>
+    <%= form.text_field :employee_id, id: :meeting_employee_employee_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

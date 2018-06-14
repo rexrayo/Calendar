@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meeting_employees
   resources :meetings do
     collection do 
       get 'json_meeting'
