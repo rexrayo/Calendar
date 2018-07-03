@@ -10,22 +10,22 @@
 
 	<div>
     <nav class="navbar navbar-dark navbar-expand-lg navbar-light bg-dark">
-      <a class="navbar-brand" href="#">Hoolaa</a>
+      <a><%= link_to "Calendar", root_path, class: "navbar-brand" %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
+            <a><%= link_to "Home", index_path, class: "nav-link" %></a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Eventos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="meetings">Ver Eventos</a>
-                <a class="dropdown-item" href="meetings/new">Crear Evento</a>
+                <a><%= link_to "Ver Eventos", meetings_path, class: "dropdown-item" %></a>
+                <a><%= link_to "Crear Eventos", new_meeting_path, class: "dropdown-item" %></a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -33,8 +33,17 @@
                 Empleados
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="employees">Ver Empleados</a>
-                <a class="dropdown-item" href="employees/new">Crear Empleado</a>
+                <a><%= link_to "Ver Empleados", employees_path, class: "dropdown-item" %></a>
+                <a><%= link_to "Crear Empleados", new_employee_path, class: "dropdown-item" %></a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Relaciones
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a><%= link_to "Ver Relaciones", meeting_employees_path, class: "dropdown-item" %></a>
+                <a><%= link_to "Crear Relaciones", new_meeting_employee_path, class: "dropdown-item" %></a>
             </div>
           </li>
         </ul>

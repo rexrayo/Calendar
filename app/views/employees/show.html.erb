@@ -15,5 +15,79 @@
   <%= @employee.sex %>
 </p>
 
+<p>
+	<strong>Start:</strong>
+	<%= @employee.start.strftime("%I:%M%p") %>
+</p>
+
+<p>
+	<strong>End:</strong>
+	<%= @employee.end.strftime("%I:%M%p") %>
+</p>
+
+<p>
+	<table class="table">
+		<thead>
+			<tr>
+    			<th scope="col">ID</th>
+    			<th scope="col">Title</th>
+    			<th scope="col">Color</th>
+    			<th scope="col">Start</th>
+    			<th scope="col">End</th>
+    		</tr>
+		</thead>
+		<tbody>
+			<% @employee.meeting.each do |mee| %>
+	  	  		<tr>
+      				<th scope="row"><%= mee.id %></th>
+			    	<td><%= mee.title %></td>
+			    	<td><%= mee.color %></td>
+			    	<td><%= mee.start %></td>
+			    	<td><%= mee.end %></td>
+    			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	
+</p>
+
+<!-- <p><%= link_to "#newTag",  data: { toggle: "modal" } do %>
+  			<i class="fa fa-plus"></i> Ver Eventos 
+		<% end %></p>
+
+		<div id="newTag" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<h2>Eventos</h2>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+	      	  	<table class="table">
+					<thead>
+    					<tr>
+			    			<th scope="col">ID</th>
+			    			<th scope="col">Title</th>
+			    			<th scope="col">Color</th>
+			    		</tr>
+  					</thead>
+		
+					<tbody>
+						<% @employee.meeting.each do |mee| %>
+				  	  		<tr>
+			      				<th scope="row"><%= mee.id %></th>
+						    	<td><%= mee.title %></td>
+						    	<td><%= mee.color %></td>
+						    	<td><%= mee.start %></td>
+								<td><%= mee.end %></td>
+			    			</tr>
+    					<% end %>
+					</tbody>
+				</table> 	 
+		      </div>
+		    </div>
+		  </div>
+		</div> -->
+
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>

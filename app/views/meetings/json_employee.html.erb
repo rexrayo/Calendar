@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employees</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Empleados</h1>
+		<table class="table">
+			<thead>
+    			<tr>
+			    	<th scope="col">ID</th>
+			    	<th scope="col">Name</th>
+			    	<th scope="col">Last Name</th>
+			    	<th scope="col">Sex</th>
+			    	<th scope="col">Entrada</th>
+			    	<th scope="col">Salida</th>
+			    	<th scope="col">Eventos</th>
+			    </tr>
+  			</thead>
+		
+			<tbody>
+				<% @meeting.employee.each do |emp| %>
+		  	  		<tr>
+	      				<th scope="row"><%= emp.id %></th>
+				    	<td><%= emp.name %></td>
+				    	<td><%= emp.lastname %></td>
+				    	<td><%= emp.sex %></td>
+				    	<td><%= emp.start.strftime("%I:%M%p") %></td>
+				    	<td><%= emp.end.strftime("%I:%M%p") %></td>
+				    	<td>
+				    		<!-- <p><%= link_to "#newTag",  data: { toggle: "modal" } do %>
+  								<i class="fa fa-plus"></i> Ver Eventos
+  								<%= emp.id %> 
+								<% end %>
+							</p> -->
+							<p>
+								<%= link_to "Ver Eventos", employee_url(emp) %>
+							</p>
+
+
+							<div id="newTag" class="modal fade" role="dialog">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							      	<h2>Ver Eventos</h2>
+							        <button type="button" class="close" data-dismiss="modal">&times;</button>
+							      </div>
+							      <div class="modal-body">
+						      	  	<table class="table">
+										<thead>
+					    					<tr>
+								    			<th scope="col">ID</th>
+								    			<th scope="col">Title</th>
+								    			<th scope="col">Color</th>
+								    			<th scope="col">Start</th>
+								    			<th scope="col">End</th>
+								    		</tr>
+					  					</thead>
+							
+										<tbody>
+											<% emp.meeting.each do |mee| %>
+									  	  		<tr>
+								      				<th scope="row"><%= mee.id %></th>
+											    	<td><%= mee.title %></td>
+											    	<td><%= mee.color %></td>
+											    	<td><%= mee.start %></td>
+											    	<td><%= mee.end %></td>
+								    			</tr>
+					    					<% end %>
+										</tbody>
+									</table> 	 
+							      </div>
+							    </div>
+							  </div>
+							</div>
+				    	</td>
+	    			</tr>
+    			<% end %>
+			</tbody>
+		</table>  
+	</div>
+	
+	<div class="calendar2"></div>		
+
+</body>
+</html>

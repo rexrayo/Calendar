@@ -17,6 +17,17 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
   end
 
+  def emp_meeting
+    @employee = Employee.find(params[:id])
+  end
+
+  # GET /employees/json_employee 
+  def json_employee
+    @employee =  Employee.meeting.as_json
+    puts @employee
+    render json: @employee 
+  end
+
   # GET /employees/1/edit
   def edit
   end
@@ -69,6 +80,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :lastname, :sex)
+      params.require(:employee).permit(:name, :lastname, :sex, :start, :end)
     end
 end

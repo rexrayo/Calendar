@@ -31,8 +31,8 @@ initialize_calendar = function() {
       selectHelper: true,
       editable: true,
       eventLimit: true,
+      aspectRatio: 1.8,
       events: 'meetings/json_meeting',
-     
 
      eventDrop: function(meetings, delta, revertFunc) {
      // console.log(delta)
@@ -55,6 +55,15 @@ initialize_calendar = function() {
             data: meetings_data,
             type: 'PATCH'
       });
+    },
+
+    eventLimit: {
+      'agenda': 3,
+      'default': true
+    },
+
+    eventClick: function(eventObj){
+      window.location = "http://localhost:3000/meetings/" + eventObj.id + "/json_employee"; 
     }
     
 
@@ -62,3 +71,29 @@ initialize_calendar = function() {
   })
 };
 $(document).on('turbolinks:load', initialize_calendar);
+
+
+var initialize_calendar2;
+initialize_calendar2 = function(){
+  $('.calendar2').each(function(){
+    var calendar2 = $(this);
+    calendar2.fullCalendar({
+      defaultView: 'agendaWeek',
+      slotDuration: '01:00:00',
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'agendaWeek,agendaDay'
+        },
+      selectable: true,
+      allDaySlot: false,
+      slotEventOverlap: false,
+      selectHelper: true,
+      editable: true,
+      aspectRatio: 1.8,
+      eventLimit: true,
+      events: 'json_test'
+    });
+  })
+};
+$(document).on('turbolinks:load', initialize_calendar2);

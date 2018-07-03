@@ -7,6 +7,7 @@ class MeetingsController < ApplicationController
     @meetings = Meeting.all
   end
 
+
   # GET /meetings/1
   # GET /meetings/1.json
   def show
@@ -16,10 +17,29 @@ class MeetingsController < ApplicationController
     @meeting =  Meeting.all.as_json
     render json: @meeting 
   end
+
+  def json_employee
+    @meeting = Meeting.find(params[:id])
+  end
+
+  def emp_meeting
+    @meeting = Meeting.find(params[:id])
+  end
+
+  def json_test
+    @meeting = Meeting.find(params[:id]).employee.as_json
+    # @start = Meeting.find(params[:id]).start
+    # @end = Meeting.find(params[:id]).end
+    # puts @start
+    # puts @end
+    render json: @meeting
+  end
+
   # GET /meetings/new
   def new
     @meeting = Meeting.new
   end
+
 
   # GET /meetings/1/edit
   def edit

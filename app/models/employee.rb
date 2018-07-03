@@ -1,11 +1,6 @@
 class Employee < ApplicationRecord
-	has_and_belongs_to_many :meeting
-
-def meetings
-	@meetings = Meeting.find(1)
-
-	return @meetings
-end
+	has_many :meeting_employee, :dependent => :delete_all
+	has_many :meeting, :through => :meeting_employee
 
 
 end

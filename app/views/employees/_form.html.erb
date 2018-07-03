@@ -26,6 +26,16 @@
     <%= form.text_field :sex, id: :employee_sex %>
   </div>
 
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.time_field :start, id: :employee_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end %>
+    <%= form.time_field :end, id: :employee_end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
